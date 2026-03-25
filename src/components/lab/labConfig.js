@@ -56,7 +56,7 @@ export const STATION_COLORS = {
 export const STATION_BASE_INFO = {
   RETORT: { 
     title: "Retort", 
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/alembic.png?v=1', 
+    img: 'assets/lab/alembic.png', 
     theme: 'retort', 
     isBillboard: true,
     uiType: 'STATION',
@@ -64,7 +64,7 @@ export const STATION_BASE_INFO = {
   },
   POT: { 
     title: "Pot", 
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/pot.png?v=1', 
+    img: '/assets/lab/pot.png', 
     theme: 'pot', 
     isBillboard: true,
     uiType: 'STATION',
@@ -72,7 +72,7 @@ export const STATION_BASE_INFO = {
   },
   BOWL: { 
     title: "Bowl", 
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/bowl.png?v=1', 
+    img: '/assets/lab/bowl.png', 
     theme: 'bowl', 
     isBillboard: true,
     uiType: 'STATION',
@@ -81,14 +81,14 @@ export const STATION_BASE_INFO = {
   MILL: { 
     era1: { 
       title: "Mill", 
-      img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/stone_quern.png?v=1', 
+      img: '/assets/lab/stone_quern.png', 
       processName: "Grind", 
       theme: 'mill', 
       isBillboard: true 
     },
     era2_plus: { 
       title: "Press", 
-      img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/handscrewpress.png?v=333333', 
+      img: '/assets/lab/handscrewpress.png', 
       processName: "Press", 
       theme: 'mill', 
       isBillboard: true 
@@ -98,7 +98,7 @@ export const STATION_BASE_INFO = {
   },
   VAT: { 
     title: "Vat", 
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/vat.png?v=1', 
+    img: '/assets/lab/vat.png', 
     theme: 'vat', 
     isBillboard: true,
     uiType: 'STATION',
@@ -106,14 +106,14 @@ export const STATION_BASE_INFO = {
   },
   KILN: { 
     title: "Kiln", 
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/kiln.png?v=1', 
+    img: '/assets/lab/kiln.png', 
     theme: 'kiln',
     uiType: 'STATION',
     cameraBehavior: 'ZOOM'
   },
   PLANTER: { 
     title: "Planter", 
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/planter.png?v=1', 
+    img: '/assets/lab/planter.png', 
     theme: 'planter', 
     isBillboard: true,
     uiType: 'STATION',
@@ -121,7 +121,7 @@ export const STATION_BASE_INFO = {
   },
   ELECTROLYSIS: { 
     title: "Electrolysis", 
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/electrolysis.png?v=1', 
+    img: '/assets/lab/electrolysis.png', 
     theme: 'electrolysis', 
     isBillboard: true,
     uiType: 'STATION',
@@ -129,19 +129,19 @@ export const STATION_BASE_INFO = {
   },
   ATHANOR: { 
     title: "Athanor", 
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/athanor.png?v=1e', 
+    img: '/assets/lab/athanor.png', 
     theme: 'athanor',
     isInteractive: false,        
   },
   TABLE: { 
     title: "Table", 
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/table.png?v=1', 
+    img: '/assets/lab/table.png', 
     theme: 'table',
     isInteractive: false,    
   },
   DOOR: { 
     title: "Door", 
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/door.png?v=10', 
+    img: '/assets/lab/door.png', 
     theme: 'door',
     uiType: 'NAV', 
     cameraBehavior: 'STATIC',
@@ -150,7 +150,7 @@ export const STATION_BASE_INFO = {
   },
   DESK: { 
     title: "Desk", 
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/desk.png?v=1', 
+    img: '/assets/lab/desk.png', 
     theme: 'desk',
     isInteractive: false 
   },
@@ -158,14 +158,14 @@ export const STATION_BASE_INFO = {
   // --- NEW UNIFIED DESK ITEMS ---
   MAP: {
     title: "Map",
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/map_background.webp?raw=true',
+    img: '/assets/lab/map_background.webp',
     isBillboard: true,
     uiType: 'POPUP',
     cameraBehavior: 'STATIC'
   },
   JOURNAL: {
     title: "Journal",
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/journal.png?raw=true', 
+    img: '/assets/lab/journal.png', 
     isBillboard: true,
     uiType: 'POPUP',
     cameraBehavior: 'STATIC'
@@ -179,7 +179,7 @@ export const STATION_BASE_INFO = {
   },
   SYSTEM: {
     title: "System Menu",
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/ouroboros.png?v=1',
+    img: '/assets/lab/ouroboros.png',
     isBillboard: true,
     uiType: 'NAV', 
     cameraBehavior: 'STATIC'

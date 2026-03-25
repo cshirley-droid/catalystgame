@@ -4,16 +4,15 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 // --- ASSETS ---
 const ASSETS = {
   blackStones: [
-    "https://github.com/cshirley-droid/terni-lapilli/blob/main/stone_black_1.png?raw=true",
-    "https://github.com/cshirley-droid/terni-lapilli/blob/main/stone_black_2.png?raw=true",
-    "https://github.com/cshirley-droid/terni-lapilli/blob/main/stone_black_3.png?raw=true"
+    "assets/wk/desk/gamepieces/stone_black_1.png",
+    "assets/wk/desk/gamepieces/stone_black_2.png"
   ],
   whiteStones: [
-    "https://github.com/cshirley-droid/terni-lapilli/blob/main/stone_white_1.png?raw=true",
-    "https://github.com/cshirley-droid/terni-lapilli/blob/main/stone_white_2.png?raw=true",
-    "https://github.com/cshirley-droid/terni-lapilli/blob/main/stone_white_3.png?raw=true"
+    "assets/wk/desk/gamepieces/stone_white_1.png",
+    "assets/wk/desk/gamepieces/stone_white_2.png"
   ],
-  moveSound: "https://github.com/cshirley-droid/catalyst/blob/main/stone_slide.mp3?raw=true"
+  moveSound: "assets/audio/stone_slide.mp3",
+  errorSound: "assets/audio/stone_clack.mp3"
 };
 
 // --- CONSTANTS ---

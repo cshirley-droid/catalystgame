@@ -8,7 +8,7 @@ import { useGameStore } from '../../store/useGameStore';
 import { WunderkammerScene } from './3d/WunderkammerScene';
 import { WkDesk } from './desk/WkDesk';
 
-const CRATE_IMAGE = 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/goods.png?raw=true'; 
+const CRATE_IMAGE = 'assets/wk/crate.png'; 
 const CRATE_POSITION_PERCENT = { x: 20, y: 80 }; 
 
 const useStudyToast = () => {

@@ -9,7 +9,7 @@ export const CATALOG_ITEMS = [
     price: 1000,
     type: 'table_curio',
     era: 1, // Accessible immediately
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/pyrite_sun.png?raw=true',
+    img: '/assets/wk/curios/pyrite_sun.png',
   },
   {
     id: 'nautilus_shell',
@@ -18,7 +18,7 @@ export const CATALOG_ITEMS = [
     price: 1800,
     type: 'table_curio',
     era: 1,
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/Nautilus_shell.png?raw=true', 
+    img: '/assets/wk/curios/Nautilus_shell.png', 
   },
 
   // --- ERA 2: RENAISSANCE & ENLIGHTENMENT (2000-3000 range) ---
@@ -29,7 +29,7 @@ export const CATALOG_ITEMS = [
     price: 1500,
     type: 'table_curio',
     era: 2,
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/glass_prism.png?raw=true', 
+    img: '/assets/wk/curios/glass_prism.png', 
   },
   {
     id: 'vitruvian_man',
@@ -38,7 +38,7 @@ export const CATALOG_ITEMS = [
     price: 2000,
     type: 'wall_curio',
     era: 2,
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/vitruvian_man.jpg?raw=true', 
+    img: '/assets/wk/curios/vitruvian_man.jpg', 
   },
   {
     id: 'fossilized_bird',
@@ -47,7 +47,7 @@ export const CATALOG_ITEMS = [
     price: 2500,
     type: 'wall_curio',
     era: 2, 
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/archaeopteryx.png?raw=true', 
+    img: '/assets/wk/curios/archaeopteryx.png', 
   },
   {
     id: 'great_wave',
@@ -56,7 +56,7 @@ export const CATALOG_ITEMS = [
     price: 3000,
     type: 'wall_curio',
     era: 2,
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/The_Great_Wave_off_Kanagawa.jpg?raw=true', 
+    img: '/assets/wk/curios/The_Great_Wave_off_Kanagawa.jpg', 
   },
   {
     id: 'crookes_tube',
@@ -76,7 +76,7 @@ export const CATALOG_ITEMS = [
     price: 3500,
     type: 'table_curio',
     era: 3,
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/mechanism_of_antikhytera.png?raw=true', 
+    img: '/assets/wk/curios/mechanism_of_antikhytera.png', 
   },
   {
     id: 'siberian_unicorn',
@@ -94,7 +94,7 @@ export const CATALOG_ITEMS = [
     price: 4500,
     type: 'table_curio',
     era: 3,
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/mechanical_orrery.png?raw=true', 
+    img: '/assets/wk/curios/mechanical_orrery.png', 
   },
   {
     id: 'thinker_statue',
@@ -103,7 +103,7 @@ export const CATALOG_ITEMS = [
     price: 4500,
     type: 'table_curio',
     era: 3,
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/The_Thinker.png?raw=true', 
+    img: '/assets/wk/curios/The_Thinker.png', 
   },
   {
     id: 'mona_lisa',
@@ -112,7 +112,7 @@ export const CATALOG_ITEMS = [
     price: 5000,
     type: 'wall_curio',
     era: 3,
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/Mona_Lisa.jpg?raw=true', 
+    img: '/assets/wk/curios/Mona_Lisa.jpg', 
   },
 
   // --- ERA 4: MODERN & HIGH VALUE (5500-8000 range) ---
@@ -123,7 +123,7 @@ export const CATALOG_ITEMS = [
     price: 5500,
     type: 'table_curio',
     era: 4,
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/Chinese_Vase.png?raw=true', 
+    img: '/assets/wk/curios/Chinese_Vase.png', 
   },
   {
     id: 'dino_skull',
@@ -132,7 +132,7 @@ export const CATALOG_ITEMS = [
     price: 6000,
     type: 'table_curio',
     era: 4,
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/theropod_skull.png?raw=true', 
+    img: '/assets/wk/curios/theropod_skull.png', 
   },
   {
     id: 'shroud_negative',
@@ -150,7 +150,7 @@ export const CATALOG_ITEMS = [
     price: 7500,
     type: 'table_curio',
     era: 4,
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/Rosetta_Stone.png?raw=true', 
+    img: '/assets/wk/curios/Rosetta_Stone.png', 
   },
   {
     id: 'automaton_turk', 
@@ -159,7 +159,7 @@ export const CATALOG_ITEMS = [
     price: 8000,
     type: 'table_curio',
     era: 4,
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/mechanical_turk.jpg?raw=true', 
+    img: '/assets/wk/curios/mechanical_turk.jpg', 
   },
 
   // --- ERA 5: THE ELECTRIC AGE (The Crown Jewels - 10000+) ---
@@ -170,7 +170,7 @@ export const CATALOG_ITEMS = [
     price: 10000,
     type: 'wall_curio',
     era: 5,
-    img: 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/starry_night.jpg?raw=true', 
+    img: '/assets/wk/curios/starry_night.jpg', 
   },
   {
     id: 'deep_blue_chip',

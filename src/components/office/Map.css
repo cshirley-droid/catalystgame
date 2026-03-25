@@ -40,8 +40,8 @@
   background-image: 
     linear-gradient(180deg, rgba(0,0,0,0) 48%, rgba(0,0,0,0.3) 50%, rgba(255,255,255,0.2) 51%, rgba(0,0,0,0) 53%),
     linear-gradient(90deg, rgba(0,0,0,0) 31%, rgba(0,0,0,0.2) 33%, rgba(255,255,255,0.2) 34%, rgba(0,0,0,0) 36%, rgba(0,0,0,0) 64%, rgba(0,0,0,0.2) 66%, rgba(255,255,255,0.2) 67%, rgba(0,0,0,0) 69%),
-    url('https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/textures/texture_paper.png?raw=true'),
-    url('https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/map_background.webp?raw=true');
+    url('/assets/texture/paper.png?raw=true'),
+    url('/assets/lab/map_background.webp');
 
   background-size: 100% 100%;
   background-position: center;
