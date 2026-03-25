@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 // --- CONFIGURATION ---
-const MAP_IMAGE_URL = "https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/wk/ancient_map.webp?raw=true"; 
+const MAP_IMAGE_URL = "assets/wk/ancient_map.webp"; 
 
 const LOCATIONS = [
   { 

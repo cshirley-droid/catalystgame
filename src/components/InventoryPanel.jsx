@@ -5,7 +5,7 @@ import { ITEMS } from '../data/items';
 import { ItemIcon } from './ItemIcon'; 
 
 const TAB_ICONS = {
-  raw: "https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/raw.png?raw=true", 
+  raw: "", 
   mechanikos: "", 
   pyrotechny: "", 
   biomancy: "" 

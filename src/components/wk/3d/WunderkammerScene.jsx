@@ -7,7 +7,7 @@ import { useMousewheelRotation } from '../../../hooks/useMousewheelRotation';
 import { useGameStore } from '../../../store/useGameStore'; 
 import { CATALOG_ITEMS } from '../../../data/catalog';
 
-const WK_SKYBOX_URL = 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/wk/wunderkammerskybox.webp';
+const WK_SKYBOX_URL = 'assets/wk/wunderkammerskybox.webp';
 
 // Converts old 2D percentage coordinates to 3D world coordinates
 const convert2DTo3D = (oldX, oldY) => {
@@ -161,8 +161,8 @@ export const WunderkammerScene = ({ purchasedItems, studyPlacement, onPlaceItem,
   // Grab the currently selected item from Zustand (default to DESK)
   const activeStation = useGameStore(state => state.gameState?.wunderkammer?.activeStation || 'DESK');
   const skyboxTexture = useTexture(WK_SKYBOX_URL);
-  const doorTexture = useTexture('https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/wk/doorback.png?raw=true');
-  const deskTexture = useTexture('https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/wk/wkdesk.png?raw=true');
+  const doorTexture = useTexture('assets/wk/doorback.png');
+  const deskTexture = useTexture('assets/wk/wkdesk.png');
   const { gl } = useThree();
 
   // State to manage dragging

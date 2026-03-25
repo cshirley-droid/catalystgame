@@ -113,7 +113,7 @@
     display: flex; gap: 10px; z-index: 9999; border: 1px solid #00ff00;
   }
   .debug-era-btn { background: #333; color: #00ff00; border: 1px solid #00ff00; cursor: pointer; }
-  .debug-era-btn.active { background: #00ff00; color: #black; }
+  .debug-era-btn.active { background: #00ff00; color: #000000; }
   
   /* =========================================
      5. MOBILE LOGIC

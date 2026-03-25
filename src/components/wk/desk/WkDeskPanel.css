@@ -17,7 +17,7 @@
   
     /* 2. Theme & Styling */
     background-color: #2b452e; 
-    background-image: url('https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/textures/black-felt.png?raw=true');
+    background-image: url('assets/texture/felt.png');
     background-blend-mode: overlay; 
     color: #f0ead6; 
     border-left: 5px solid #2c1a0e; 

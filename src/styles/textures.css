@@ -2,31 +2,31 @@
 TEXTURES & VISUALS
 ========================================= */
   .paper-texture {
-  background-image: url('https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/textures/texture_paper.png?raw=true');
+  background-image: url('assets/texture/paper.png');
   background-repeat: repeat;
   background-size: 600px; 
   background-color: #d6b667;   
 }
 
 .wood-texture {
-  background-image: url('https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/textures/wood.png?raw=true');
+  background-image: url('assets/texture/wood.png');
   background-size: cover; 
   background-color: #3e2b1d;
 }
 
 .leather-texture {
-  background-image: url('https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/textures/leather.png?raw=true');
+  background-image: url('assets/texture/leather.png');
   background-color: #401313; 
 }
 
 .stone-texture {
-  background-image: url('https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/textures/texture_stone.png?raw=true');
+  background-image: url('assets/texture/stone.png');
   background-color: #000000; 
   color: #F0EAD6; 
 }
 
 .felt-texture {
-  background-image: url('https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/textures/black-felt.png?raw=true');
+  background-image: url('assets/texture/felt.png');
   background-repeat: repeat;
   background-color: #195321;   
 }
