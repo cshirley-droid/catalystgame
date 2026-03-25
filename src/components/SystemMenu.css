@@ -1,0 +1,192 @@
+/* src/components/SystemMenu.css */
+
+.system-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85); /* Darker dim */
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.system-modal {
+  width: 450px;
+  padding: 40px;
+  border-radius: 4px; /* Sharper corners for "Monolith" feel */
+  box-shadow: 0 0 50px rgba(0,0,0,1);
+  border: 1px solid #444;
+  color: #d4cfb8; /* Parchment white text */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.system-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #555;
+  padding-bottom: 15px;
+}
+
+.system-header h2 {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 3px;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.system-close {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 0.5;
+  padding: 0;
+}
+.system-close:hover { color: #fff; }
+
+.system-section h3 {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: #888;
+  margin-bottom: 15px;
+  border-left: 3px solid #8b4444; /* Accent marker */
+  padding-left: 10px;
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+}
+
+/* UNIFIED BUTTON STYLE */
+.sys-btn {
+  flex: 1;
+  height: 50px; /* Fixed height ensures Label matches Button */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  background-color: rgba(255,255,255,0.05);
+  border: 1px solid #666;
+  color: #eee;
+  
+  cursor: pointer;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  transition: all 0.2s;
+  
+  /* Reset button defaults */
+  padding: 0;
+  margin: 0;
+}
+
+.sys-btn:hover {
+  background-color: rgba(255,255,255,0.1);
+  border-color: #aaa;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
+}
+
+.sys-btn.danger {
+  margin-top: 10px;
+  border-color: #5c1e1e;
+  color: #ff8888;
+  width: 100%; /* Full width for reset */
+}
+.sys-btn.danger:hover {
+  background-color: #3a1111;
+  border-color: #ff4444;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+}
+
+.system-footer {
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  color: #444;
+  margin-top: 10px;
+}
+/* Ensures the footer content is subtle/faint */
+.system-footer {
+  font-size: 0.75em; /* Small text */
+  color: #555; /* Faint, dark text (assuming a light modal background) */
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the actual clickable Colophon link */
+.colophon-link {
+  cursor: pointer;
+  margin-left: 5px; /* Separate it slightly from the version number */
+  transition: color 0.2s; /* Nice subtle transition */
+}
+
+.colophon-link:hover {
+  color: #333; /* Slightly darker on hover to indicate clickability */
+}
+/* src/components/SystemMenu.css - Add these styles */
+
+.colophon-modal {
+  /* Slightly adjust size for a more reading-focused modal if desired, 
+     otherwise it uses the system-modal size */
+  max-width: 500px;
+  max-height: 80vh; /* Make it take up more vertical space */
+  overflow: hidden; /* Prevent modal body scrollbar from showing */
+}
+
+.colophon-content {
+  padding: 15px 25px;
+  overflow-y: auto; /* Make content scrollable */
+  height: 100%; /* Fill the height of the modal */
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.colophon-intro {
+  font-style: italic;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.colophon-divider {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  margin: 15px 0;
+}
+
+.attribution-entry {
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+}
+
+.attribution-entry h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+  color: #333;
+  font-weight: bold;
+}
+
+.attribution-entry p {
+  margin: 3px 0;
+  font-size: 0.9em;
+}
+
+.license-link {
+  color: #007bff; /* Standard link color */
+  text-decoration: underline;
+}

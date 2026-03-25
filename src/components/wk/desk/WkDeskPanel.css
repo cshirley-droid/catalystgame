@@ -1,0 +1,214 @@
+/* src/components/wk/desk/WkDeskPanel.css */
+
+/* src/components/WkDeskPanel.css */
+
+/* ==================================================
+   wkdesk THEME OVERRIDES & STYLES
+   ================================================== */
+
+   .wkdesk-panel-container {
+    /* 1. Structural Layout (replaces what we lost from .inventory-panel) */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  
+    /* 2. Theme & Styling */
+    background-color: #2b452e; 
+    background-image: url('https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/textures/black-felt.png?raw=true');
+    background-blend-mode: overlay; 
+    color: #f0ead6; 
+    border-left: 5px solid #2c1a0e; 
+    box-shadow: inset 0 0 80px rgba(0,0,0,0.6);
+  }
+  
+  /* --- wkdesk VISIBILITY FIXES --- */
+  
+  .wkdesk-panel-container .tab-label {
+    color: #e6c288; 
+  }
+  
+  .wkdesk-panel-container .tab-btn {
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid transparent;
+  }
+  
+  .wkdesk-panel-container .tab-btn.active {
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 2px solid #d4af37; 
+  }
+  
+  .wkdesk-panel-container .tab-btn.active .tab-label {
+    color: #d4af37; 
+  }
+  
+  .inventory-panel.wkdesk-theme .tab-label {
+    color: #e6c288; 
+  }
+  
+  .inventory-panel.wkdesk-theme .tab-btn {
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid transparent;
+  }
+  
+  .inventory-panel.wkdesk-theme .tab-btn.active {
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 2px solid #d4af37; 
+  }
+  
+  .inventory-panel.wkdesk-theme .tab-btn.active .tab-label {
+    color: #d4af37; 
+  }
+  
+  .wkdesk-panel-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    overflow-x: hidden; /* Force block horizontal scroll */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box; /* Absorb the 15px padding */
+  }
+  
+  .wkdesk-content-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .opponent-card {
+    background: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .opponent-name {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    margin: 10px 0 5px 0;
+  }
+  
+  .codex-text {
+    white-space: pre-line;
+    line-height: 1.5;
+    font-family: 'Georgia', serif;
+    text-align: left;
+  }
+  
+  .wkdesk-btn {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    box-sizing: border-box;
+  }
+  
+  .wkdesk-btn.primary {
+    background: #2c3e50;
+    color: white;
+    border-color: #34495e;
+  }
+  
+  .wkdesk-btn.danger {
+    background: #5c1e1e;
+    color: #ffcccc;
+    border-color: #7f2a2a;
+  }
+  
+  /* --- CODEX / GAME FAMILIES GUIDES --- */
+  
+  .codex-header {
+    margin-top: 0;
+    border-bottom: 2px solid #d4af37; 
+    padding-bottom: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    color: #d4af37; 
+  }
+  
+  .codex-subheader {
+    margin: 20px 0 5px 0;
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+    color: #e6c288; 
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+  
+  .codex-subheader.first {
+    margin-top: 10px;
+  }
+  
+  .codex-body {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #f0ead6; 
+  }
+  /* --- DIEGETIC EXIT PLAQUE --- */
+.desk-exit-plaque {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 12px 30px;
+  
+  /* Creates a shiny brass/gold metallic look */
+  background: linear-gradient(135deg, #c7a052 0%, #a47b33 40%, #8a6327 100%);
+  border: 2px solid #5c4316;
+  border-radius: 2px;
+  
+  color: #2c1a0e; /* Deep engraved brown */
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  
+  cursor: pointer;
+  z-index: 100; /* Ensures it stays above the map and board games */
+  
+  /* The 3D physical drop shadow and bevel */
+  box-shadow: 3px 5px 10px rgba(0,0,0,0.6), inset 1px 1px 2px rgba(255,255,255,0.4);
+  text-shadow: 1px 1px 0px rgba(255,255,255,0.2);
+  transition: all 0.1s ease-out;
+  
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Hover & Tap Physics */
+.desk-exit-plaque:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 3px 6px 12px rgba(0,0,0,0.7), inset 1px 1px 2px rgba(255,255,255,0.5);
+}
+
+.desk-exit-plaque:active {
+  transform: translateY(2px);
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.6), inset -1px -1px 2px rgba(255,255,255,0.2);
+}
+
+/* The 4 corner screws */
+.plaque-screw {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #3e2723;
+  border-radius: 50%;
+  box-shadow: inset 1px 1px 1px rgba(0,0,0,0.8), 1px 1px 0 rgba(255,255,255,0.3);
+}
+
+.plaque-screw.top-left { top: 4px; left: 4px; }
+.plaque-screw.top-right { top: 4px; right: 4px; }
+.plaque-screw.bottom-left { bottom: 4px; left: 4px; }
+.plaque-screw.bottom-right { bottom: 4px; right: 4px; }

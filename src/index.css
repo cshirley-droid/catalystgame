@@ -1,0 +1,35 @@
+/* src/index.css */
+
+/* 1. GLOBAL RESET & TYPOGRAPHY */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* No scrolling the whole page */
+  
+  /* The "Academic" Text Look */
+  font-family: 'Crimson Text', serif;
+  font-size: 1.1rem;
+  background-color: #F0EAD6; /* Parchment */
+  color: #2F2F2F; /* Ink */
+}
+
+/* Make all buttons look Official */
+button {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Headers = Stone Carving Look */
+h1, h2, h3, .modal-title, .biome-label, .guide-header, .station-label {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* 2. LAYOUT ARCHITECTURE */
+
+/* Prevent sidebars from squishing */
+.nav-rail, .inventory-container {
+  flex-shrink: 0; 
+}

@@ -1,0 +1,373 @@
+/* // src/components/office/journal/Journal.css
+
+/* --- 1. The Main Containers --- */
+
+/* The wrapper that centers everything on the screen/desk */
+.journal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-width: 950px; 
+  min-height: 650px;
+  overflow: visible; 
+  perspective: 1500px;
+  pointer-events: none; /* Pass clicks through to the desk */
+}
+
+/* The Book Engine Canvas */
+.book-canvas {
+  background: transparent;
+  outline: none !important;
+  pointer-events: none;
+  /* Shift the whole book left to visually re-center the paper */
+  transform: translateX(-30px); 
+}
+
+/* --- 2. Page Structure --- */
+
+/* The library's page container: Make it transparent and pass clicks */
+.page-content {
+  background-color: transparent !important;
+  width: 100%;
+  height: 100%;
+  overflow: visible !important; /* CRITICAL: Allows tabs to exist outside the page boundary */
+  backface-visibility: hidden;
+  pointer-events: none; /* Clicks on empty space pass through */
+}
+
+/* The actual visible paper */
+.page-paper {
+  position: relative;
+  height: 100%;
+  
+  /* Narrower than the container to create a 'safe zone' for tabs */
+  width: 390px; 
+  
+  padding: 45px 50px;
+  box-sizing: border-box;
+  background-color: #e8d5a7;
+  border-left: 1px solid rgba(0,0,0,0.15);
+  box-shadow: 
+    inset 15px 0 30px rgba(0,0,0,0.08),
+    2px 5px 15px rgba(0,0,0,0.15);
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  
+  /* CRITICAL: This allows the tabs to "hang" off the edge without being cut off */
+  overflow: visible !important; 
+  
+  /* Re-enable clicks on the paper itself */
+  pointer-events: auto !important; 
+  
+  /* Default: Shift left (for odd/right-side pages) */
+  margin-right: 60px;
+  margin-left: 0;
+}
+
+/* Logic for Left-side pages (Even numbers) */
+.page-content:nth-child(even) .page-paper {
+  margin-right: 0;
+  margin-left: 60px; /* Shift right to keep symmetry */
+  border-left: none;
+  border-right: 1px solid rgba(0,0,0,0.15);
+}
+
+/* --- 3. Navigation Tabs --- */
+
+.category-tabs {
+  position: absolute;
+  top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 20;
+  /* Ensure the container itself doesn't block clicks */
+  pointer-events: none; 
+}
+
+/* Positioning for tabs on the RIGHT side of the book */
+.tabs-right {
+  right: -55px; /* Sticks out past the 390px paper */
+  left: auto;
+}
+
+/* Positioning for tabs on the LEFT side of the book */
+.tabs-left {
+  left: -55px; /* Sticks out past the left edge */
+  right: auto;
+}
+
+.physical-tab {
+  width: 60px;
+  height: 95px; 
+  background: #3d2b22;
+  background-image: url('https://www.transparenttextures.com/patterns/leather.png');
+  border: 1px solid #1a0f0a;
+  color: #dcc896;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  
+  /* Base shadow */
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  
+  /* Smooth transition for the glow effect */
+  transition: box-shadow 0.4s ease, filter 0.4s ease, border-color 0.4s ease;
+  
+  pointer-events: auto !important; 
+}
+
+/* Tab Shape: Rounded on the outside edge only */
+.tabs-right .physical-tab {
+  border-radius: 0 6px 6px 0;
+}
+
+.tabs-left .physical-tab {
+  border-radius: 6px 0 0 6px;
+  /* Mirror the shadow for the left side */
+  box-shadow: -2px 2px 5px rgba(0,0,0,0.5);
+}
+
+/* The Glow Effect (Replacing the bounce) */
+.physical-tab:hover {
+  border-color: #dcc896;
+  filter: brightness(1.2); /* Makes the leather look "lit" */
+  box-shadow: 
+    0 0 10px rgba(220, 200, 150, 0.6), /* Inner soft glow */
+    0 0 20px rgba(220, 200, 150, 0.4), /* Outer atmospheric glow */
+    4px 0 15px rgba(0, 0, 0, 0.5);     /* Keep the base shadow */
+}
+
+.tab-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.5rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* Branch specific colors */
+.tab-mechanikos { background-color: #3d2b22; }
+.tab-pyrotechny { background-color: #7a2a1d; }
+.tab-biomancy { background-color: #2a3d3d; }
+.tab-spiral     { background-color: #4a5c66; }
+.tab-clavis     { background-color: #5a3c5a; }
+
+
+/* --- 4. Covers & Special Pages --- */
+
+.page-cover {
+  position: relative;
+  background-color: #4a0404;
+  background-image: 
+    radial-gradient(circle at center, rgba(139, 0, 0, 0.2) 0%, rgba(20, 0, 0, 0.5) 100%),
+    url('https://www.transparenttextures.com/patterns/leather.png');
+  box-shadow: 
+    inset 0 0 60px rgba(0,0,0,0.9),
+    5px 5px 30px rgba(0,0,0,0.6); 
+  pointer-events: auto !important;
+  width: 100%;
+  height: 100%;
+}
+
+.inside-cover-paper {
+  background-color: #dcc896;
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.15);
+  width: 100%;
+  height: 100%;
+}
+
+.emboss-area-top {
+  position: absolute;
+  top: 15%; left: 0; right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.embossed-title {
+  font-family: 'Cinzel', serif;
+  font-size: 3rem;
+  letter-spacing: 0.25em;
+  color: rgba(10, 0, 0, 0.8);
+  text-shadow: -1px -1px 1px rgba(0,0,0,1), 1px 1px 1px rgba(255,255,255,0.05);
+}
+
+.embossed-svg-symbol {
+  width: 130px; height: 130px;
+  color: rgba(10, 0, 0, 0.8);
+  filter: drop-shadow(-1px -1px 1px rgba(0,0,0,1)) drop-shadow(1px 1px 1px rgba(255,255,255,0.05));
+  margin-top: 20px;
+  opacity: 0.9;
+}
+
+/* Base glow state */
+.mystical-glow {
+  /* You can change the hex code to a magical green (#50C878) or arcane purple (#8A2BE2) if you prefer! */
+  color: #b0891d; /* Base golden color */
+  filter: drop-shadow(0 0 5px rgba(205, 164, 52, 0.6));
+  animation: arcane-breathe 1s ease-in-out infinite alternate;
+}
+
+/* The breathing animation */
+@keyframes arcane-breathe {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(205, 164, 52, 0.3));
+    opacity: 0.8;
+  }
+  100% {
+    /* Stacking multiple drop-shadows creates a much richer, softer bloom effect */
+    filter: drop-shadow(0 0 8px rgba(205, 164, 52, 0.8)) 
+            drop-shadow(0 0 20px rgba(205, 164, 52, 0.4));
+    opacity: 1;
+    color: #ffe58f; /* Brightens the stroke itself at the peak of the pulse */
+  }
+}
+
+/* --- 5. Content Styling (Text & Formulas) --- */
+.foreword-text {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: #2a2119;
+  margin: 0;
+  line-height: 1;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+.quill-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400; /* Explicitly regular */
+  font-size: 0.95rem; /* Small */
+  color: #1a0f0a; /* Unified ink color */
+  line-height: 1.2;
+  margin-top: 8px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.category-header {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #1a0f0a; /* Unified ink color */
+  text-align: center;
+  border-bottom: 2px double rgba(26, 15, 10, 0.3);
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.page-number {
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  opacity: 0.4;
+}
+
+/* --- 6. Journal Entries --- */
+
+.journal-entry {
+  /* Removed min-height so entries flow naturally based on text length */
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  /* Softened the border so it's a subtle guide, not a harsh box */
+  border-bottom: 1px solid rgba(61, 43, 34, 0.08); 
+}
+
+/* Remove the line from the last entry on a page for a cleaner margin */
+.journal-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.unlocked-ink-bleed {
+  animation: ink-reveal 0.4s ease-out forwards;
+}
+
+@keyframes ink-reveal {
+  from { opacity: 0; transform: translateY(2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Unified Vertical Equation Styling (Z-Cascade) --- */
+.recipe-equation-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; 
+  width: 100%; /* <-- THIS IS THE MAGIC BULLET */
+  gap: 0px; 
+  margin-bottom: 12px;
+  
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.85rem; 
+  color: #1a0f0a; 
+  text-transform: uppercase;
+}
+
+.equation-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; 
+  gap: 3px;
+  width: 100%; /* Ensures the rows stretch with the parent */
+}
+
+/* 1. Inputs locked to the left (Heavy Artillery) */
+.inputs-row,
+.recipe-equation-vertical .equation-row:first-child {
+  justify-content: flex-start !important;
+}
+
+/* Ensure the items themselves don't stretch and center their inner text */
+.equation-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex: 0 1 auto; 
+}
+
+/* 2. Station locked to the center */
+.station-row {
+  justify-content: center;
+  opacity: 0.85; 
+}
+
+/* 3. Output locked to the right */
+.output-row {
+  justify-content: flex-end;
+}
+
+/* Structure for the icons and text */
+.equation-item, .station-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* Typography for math symbols */
+.math-symbol {
+  font-size: 1rem;
+  margin: 0 2px;
+}
+
+.math-symbol.vertical-arrow {
+  font-size: 1.2rem;
+  margin-right: 4px;
+}
+
+/* Stripped down typography overrides */
+.station-name, .output-name {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-style: normal;
+}

@@ -1,0 +1,48 @@
+:root {
+  --color-paper: #F0EAD6;
+  --color-ink: #2F2F2F;
+  --color-border: #d4cfb8;
+  --color-felt: #335838;
+  --transition-smooth: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Global Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #000;
+}
+
+*, *:before, *:after { box-sizing: inherit; }
+
+/* Main Layout Engine */
+.app-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: #F0EAD6;
+  color: #2F2F2F;
+  overflow: hidden;
+}
+
+.main-stage {
+  position: absolute;
+  inset: 0; /* Pro shorthand for top/left/right/bottom: 0 */
+  background-image: radial-gradient(#F0EAD6 20%, #e3ddc8 80%);
+  overflow: hidden;
+}
+
+.inventory-panel {
+  position: absolute;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  z-index: 90;
+  border-left: 1px solid #d4cfb8;
+  background-color: #f4e4bc;
+  display: flex;
+  flex-direction: column;
+}

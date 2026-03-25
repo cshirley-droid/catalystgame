@@ -1,0 +1,67 @@
+/* src/components/Wallet.css */
+
+/* --- THE LEATHER POUCH --- */
+.desk-wallet-container {
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+  
+  /* Physical Shape & Depth */
+  padding: 16px 24px;
+  border-radius: 6px 6px 20px 20px; /* Flat top, rounded heavy bottom like a pouch */
+  border: 2px solid #1a1210; /* Very dark brown outer edge */
+  box-shadow: 
+    inset 0 0 20px rgba(0,0,0,0.8), /* Darkens the center of the leather */
+    4px 6px 15px rgba(0,0,0,0.6);   /* Casts a shadow onto the desk */
+  
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 120px;
+}
+
+/* --- FAUX STITCHING --- */
+.wallet-stitching {
+  position: absolute;
+  top: 5px; 
+  left: 5px; 
+  right: 5px; 
+  bottom: 5px;
+  border: 1px dashed #7a5e4d; /* Light brown thread */
+  border-radius: 4px 4px 16px 16px; /* Matches the outer curve */
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* --- TYPOGRAPHY (Adapted from Inventory Panel) --- */
+.wallet-label {
+  font-family: 'Crimson Text', serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #a89f91; /* Faded gold/parchment color for the label */
+  letter-spacing: 2px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+  z-index: 2;
+}
+
+.wallet-amount {
+  font-family: 'Crimson Text', serif;
+  font-size: 2rem; /* Made slightly larger for the desk */
+  font-weight: bold;
+  color: #b8860b; /* Your signature gold */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.9); /* Deep shadow to look embossed/metallic */
+  z-index: 2;
+}
+
+.currency {
+  font-style: italic;
+  font-size: 1.6rem;
+  opacity: 0.8;
+  color: #d4cfb8; /* A lighter silver/gold for the symbol */
+}

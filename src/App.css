@@ -1,0 +1,154 @@
+/* src/App.css */
+
+/* =========================================
+   1. GLOBAL RESET
+   ========================================= */
+   body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrolling the whole page */
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #000;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+/* =========================================
+     2. MAIN LAYOUT ENGINE
+     ========================================= */
+     .app-container {
+      position: relative; /* Replaced flexbox with relative positioning */
+      height: 100vh;
+      width: 100vw;
+      background-color: #F0EAD6; 
+      color: #2F2F2F; 
+      overflow: hidden;    
+    }
+
+    /* Main Stage */
+    .main-stage {
+      position: absolute;
+      display: block;
+      background-image: radial-gradient(#F0EAD6 20%, #e3ddc8 80%); 
+      overflow: hidden; 
+    }
+    
+     .main-stage > .lab-viewport {
+      height: 100%;
+      width: 100%;
+    }
+  
+    .main-stage canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+    }
+    
+    /* RIGHT: Inventory Panel */
+    .inventory-panel { 
+      width: 300px; 
+      /* Removed flex-shrink: 0 and min-width */
+      height: 100%;
+      z-index: 90;
+      
+      border-left: 1px solid #d4cfb8;
+      background-color: #f4e4bc; 
+      
+      display: flex;
+      flex-direction: column;
+      /* Removed transition: width so it never slides and desyncs the raycaster */
+    }
+  
+
+  
+  /* =========================================
+     4. UI UTILITIES
+     ========================================= */
+  .toast-notification {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(44, 36, 27, 0.95);
+    color: #fcf9f0;
+    padding: 15px 30px;
+    border: 1px solid #d4cfb8;
+    border-radius: 4px;
+    z-index: 2000;
+    pointer-events: none;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    animation: fadeUp 0.3s ease-out;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translate(-50%, 10px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+  }
+  
+  .splash-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    background-color: #2c241b;
+    transition: opacity 1s ease-out;
+  }
+  .splash-screen.fade-out { opacity: 0; pointer-events: none; }
+  
+  .splash-content { text-align: center; color: #d4cfb8; }
+  .splash-title { font-family: 'Cinzel', serif; font-size: 5rem; margin: 0; }
+  .splash-subtitle { font-family: 'Pinyon Script', cursive; font-size: 2rem; }
+  .splash-btn { font-size: 1.2rem; padding: 15px 40px; border: 1px solid #d4cfb8; }
+  
+  .debug-era-controls {
+    position: fixed; top: 10px; left: 50%; transform: translateX(-50%);
+    background: rgba(0,0,0,0.8); padding: 10px 20px; border-radius: 20px;
+    display: flex; gap: 10px; z-index: 9999; border: 1px solid #00ff00;
+  }
+  .debug-era-btn { background: #333; color: #00ff00; border: 1px solid #00ff00; cursor: pointer; }
+  .debug-era-btn.active { background: #00ff00; color: #black; }
+  
+  /* =========================================
+     5. MOBILE LOGIC
+     ========================================= */
+  /* --- A. ROTATION WARNING (Portrait Phones) --- */
+  .rotate-warning { display: none; }
+  
+  @media screen and (orientation: portrait) and (max-width: 900px) {
+    .app-container { display: none !important; }
+    
+    .rotate-warning {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background-color: #050505; /* Deep void color */
+      color: #d4c4a8; /* Thematic stone/paper color */
+      z-index: 9999;
+      text-align: center;
+      font-family: 'Cinzel', monospace;
+      padding: 2rem;
+    }
+    
+    .rotate-warning h2 {
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .warning-icon {
+      font-size: 4rem; 
+      margin-top: 30px;
+      animation: spin 2s infinite linear;
+    }
+    
+    @keyframes spin { 100% { transform: rotate(90deg); } }
+  }

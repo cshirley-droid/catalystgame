@@ -1,0 +1,407 @@
+/* src/components/office/Mail.css */
+/* --- DIEGETIC WRAPPER --- */
+.mail-object-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  
+  width: 100%;
+  height: 100%;
+  
+  padding: 10px; 
+  box-sizing: border-box;
+}
+
+.mail-carousel-area {
+  display: flex;
+  align-items: center;
+  
+  /* THE FIX: Explicitly tell the carousel to center its contents */
+  justify-content: center; 
+  gap: 15px;
+  
+  /* THE FIX: Let it take up the full wrapper width so it has the 
+     actual space to calculate the true center! */
+  width: 100%; 
+  height: 100%;
+}
+
+/* --- THE STACK ENGINE --- */
+.letter-stack-container {
+  position: relative;
+  /* THE FIX: Tell Flexbox to stop squishing our container! */
+  flex-shrink: 0;
+  /* THE FIX: Move the sizing footprint to the parent container */
+  width: clamp(650px, 60vw, 900px); 
+  aspect-ratio: 1.5; 
+  max-height: 75vh; 
+  
+  perspective: 1200px;
+}
+
+.letter-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  /* The card simply fills the perfectly sized parent */
+  width: 100%; 
+  height: 100%;
+  
+  padding: 40px; 
+  box-sizing: border-box;
+  
+  display: flex;
+  flex-direction: row; 
+  gap: 50px; 
+  
+  transition: transform 0.4s ease;
+  
+  transform: 
+    translate(calc(var(--stack-idx) * 4px), calc(var(--stack-idx) * 4px))
+    rotate(calc(var(--stack-idx) * 1.5deg));
+  
+  box-shadow: 4px 4px 15px rgba(0,0,0,0.3);
+  background-color: #fdfbf7;
+  overflow: hidden; 
+}
+
+/* =========================================
+   STEP 3: THE UNFOLDED CREASES (CSS Gradient Folds)
+   ========================================= */
+/* We use a pseudo-element (::after) to layer the creases *over* the 
+   paper color and text without having to edit HTML or mess up the 
+   era backgrounds. */
+.letter-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none; /* Allows clicks to pass through to the button */
+  
+  /* THE FOLD ENGINE (Inspired by Map.css) */
+  /* We draw a single central vertical fold (90deg) that aligns perfectly 
+     with the gap between our two columns. */
+  background-image: 
+    linear-gradient(90deg, 
+      rgba(0,0,0,0) 49.2%, 
+      rgba(0,0,0,0.15) 49.7%, /* Subtle Shadow */
+      rgba(255,255,255,0.1) 50%, /* Bright highlight on edge of fold */
+      rgba(0,0,0,0.08) 50.3%, /* Subtle Shadow */
+      rgba(0,0,0,0) 51%);
+  
+  /* We multiply the shadow layers, leaving the white normal-ish. */
+  background-blend-mode: multiply;
+  
+  opacity: 0.7; /* Softens the overall effect for readability */
+}
+
+/* ========================================= */
+/* --- STRUCTURAL LAYOUT (Two-Column Flex) --- */
+.letter-left-column {
+  /* THE FIX: Changed from 3 to 1. Now both columns take up exactly 50%, 
+     respecting the physical fold in the center! */
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  padding-right: 25px; /* Gives the text a little breathing room before the crease */
+}
+
+.letter-right-column {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  /* THE FIX: Removed align-items: flex-end so it stops forcing everything to the right edge! */
+  padding-left: 25px; /* Breathing room after the crease */
+}
+
+/* --- RIGHT COLUMN INTERNAL LAYOUT --- */
+
+/* TOP SECTION CONTAINER */
+.req-area {
+  /* THE FIX: Forces the entire top block (Icons, Fractions, Text) to the left */
+  align-self: flex-start; 
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between multiple requirements if there are any */
+}
+
+/* INDIVIDUAL REQUIREMENT ROW (2a, 2b, 2c) */
+.delivery-req-area {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 15px; /* Space between the Icon Block and the Text */
+}
+
+.req-icon-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the fraction directly under the icon */
+  gap: 5px;
+}
+
+.req-text {
+  margin-top: 8px; /* Visually aligns text with the center of the icon */
+  font-weight: bold; 
+}
+
+/* BOTTOM SECTION CONTAINER (2d, 2e) */
+.delivery-action-area {
+  /* THE FIX: Forces the payout and wax seal to perfectly center in the right column */
+  align-self: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the payout directly above the seal */
+  gap: 15px; /* Space between payout and seal */
+}
+
+.req-payout {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #c5a059; /* The exact gold from your PAID seal */
+}
+
+.req-payout .currency {
+  color: #c5a059; /* The exact gold from your PAID seal */
+}
+
+/* =========================================
+   ERA SPECIFIC STYLES & TYPOGRAPHY OVERHAUL
+   ========================================= */
+
+/* ERAS 0 & 1: Ancient & Medieval (Uppercase Roman) */
+.letter-card.era-paper-0, .letter-card.era-paper-1 {
+  text-transform: uppercase;
+  font-family: 'Cinzel', serif; 
+}
+.letter-card.era-paper-0 {
+  background-color: #e6d5ac;
+  background-image: radial-gradient(circle at 20% 30%, rgba(0,0,0,0.04) 0%, transparent 50%);
+  border: 2px solid #bfa16d;
+}
+.letter-card.era-paper-1 {
+  background-color: #f2e3bc;
+  background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.01) 0px, rgba(0,0,0,0.01) 2px, transparent 2px, transparent 10px);
+  border: 1px solid #d4b581;
+}
+
+/* ERA 2: Renaissance / Gutenberg (Early Print Press) */
+.letter-card.era-paper-2 {
+  font-family: 'Garamond', 'Times New Roman', serif;
+  background-color: #fdfbf7;
+  background-image: linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 5px 100%;
+  border: 1px solid #d4cfb8;
+}
+
+/* ERA 3: Enlightenment / Newton (Handwritten/Cursive) */
+.letter-card.era-paper-3 {
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+  font-size: 1.3rem; /* Cursive usually needs to be a bit larger to be readable */
+  background-color: #fffefc;
+  background-image: none !important;
+  border: 1px solid #ccc7b0;
+}
+
+/* ERAS 4 & 5: 19th & Early 20th Century (The Typewriter Era) */
+.letter-card.era-paper-4, .letter-card.era-paper-5 {
+  font-family: 'Courier New', Courier, monospace;
+}
+.letter-card.era-paper-4 {
+  background: #f4f1ea !important; /* Forces ONLY this solid color */
+  border: 1px solid #bdc3c7;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+.letter-card.era-paper-5 {
+  background: #ffffff !important; /* Forces ONLY pure white */
+  border: 1px solid #34495e;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* ERA 6: Late 20th Century (Corporate/Modern Memo) */
+.letter-card.era-paper-6 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* Combines the solid color and the subtle gradient lines into one shorthand */
+  background: linear-gradient(to bottom, transparent 95%, #e0e0e0 100%), #fafafa !important;
+  background-size: 100% 2rem !important;
+  border: 1px solid #cccccc;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* ERA 7: The Digital Age (Screen/Tech interface) */
+.letter-card.era-paper-7 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+  background: #f0f4f8 !important; /* Forces ONLY the subtle blue screen tint */
+  border: 2px solid #a8c0d8;
+  box-shadow: 0 0 15px rgba(168, 192, 216, 0.5);
+  border-radius: 12px;
+  color: #2c3e50;
+}
+/* Make it look different in the Modern Era (Era 7) */
+.era-paper-7 .letter-date {
+  border: none;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  transform: rotate(0deg);
+  font-style: normal;
+}
+
+/* =========================================
+   SEAL & STAMP EVOLUTION
+   ========================================= */
+
+/* Default Wax Seal (Eras 0, 1, 2, 3) */
+/* --- BASE WAX SEAL (Shape & Deboss Engine) --- */
+.wax-seal {
+  position: relative;
+  /* Slightly larger to fit "Keep crafting..." */
+  width: 95px; 
+  height: 95px;
+  border: none;
+  
+  /* The organic, slightly squished circle */
+  border-radius: 48% 52% 45% 50% / 45% 50% 52% 48%;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+  
+  font-family: 'Cinzel', serif; 
+  font-weight: 900;
+  font-size: 0.9rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  
+  /* Base structural shadows */
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.4), 3px 3px 8px rgba(0,0,0,0.3);
+  transform: rotate(-10deg);
+  transition: all 0.3s ease;
+}
+
+/* STATE 1: CAN AFFORD (Crimson with Golden Glow Hover) */
+.seal-deliver {
+  background-color: #8b4444;
+  /* Matching color + shadow creates the "stamped into wax" illusion */
+  color: #8b4444; 
+  text-shadow: -1px -1px 1px rgba(0,0,0,0.6), 1px 1px 1px rgba(255,255,255,0.2);
+  cursor: pointer;
+}
+
+.seal-deliver:hover {
+  /* Straightens out slightly and scales up */
+  transform: rotate(-5deg) scale(1.05); 
+  /* Maintains the inner deboss, but adds the Golden Glow underneath! */
+  box-shadow: 
+    inset 2px 2px 5px rgba(0,0,0,0.4), 
+    0 0 20px 4px rgba(212, 175, 55, 0.7);
+}
+
+/* STATE 2: INSUFFICIENT STOCK (Dull Gray) */
+.seal-crafting {
+  background-color: #7a7a7a;
+  color: #7a7a7a;
+  text-shadow: -1px -1px 1px rgba(0,0,0,0.5), 1px 1px 1px rgba(255,255,255,0.1);
+  opacity: 0.85;
+  /* Flatter shadow to look "dried out" and less tactile */
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3), 1px 1px 3px rgba(0,0,0,0.2);
+  cursor: not-allowed;
+  font-size: 0.75rem; /* Slightly smaller to fit the longer phrase */
+}
+
+/* STATE 3: ALREADY DELIVERED (Muted Classical Gold) */
+.seal-paid {
+  background-color: #c5a059;
+  color: #c5a059;
+  text-shadow: -1px -1px 1px rgba(0,0,0,0.4), 1px 1px 1px rgba(255,255,255,0.4);
+  cursor: default;
+  /* Flattens entirely onto the page */
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3); 
+}
+
+/* Rubber Ink Stamp (Eras 4 & 5 - matches sketch!) */
+.era-paper-4 .wax-seal, .era-paper-5 .wax-seal {
+  background-color: transparent;
+  background-image: none !important;
+  color: #2c3e50;
+  text-shadow: none;
+  border: 2px dashed #2c3e50; /* Dashed border just like your drawing! */
+  border-radius: 50%;
+  box-shadow: none;
+  transform: rotate(15deg);
+  opacity: 0.8;
+}
+
+/* Postal Franking / Barcode (Era 6) */
+.era-paper-6 .wax-seal {
+  background-color: transparent;
+  color: #d35400;
+  text-shadow: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  border-top: 3px solid #d35400;
+  border-bottom: 1px solid #d35400;
+  width: 90px;
+  height: 40px;
+  transform: rotate(0deg);
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  opacity: 0.8;
+}
+
+/* Digital Microchip/Badge (Era 7) */
+.era-paper-7 .wax-seal {
+  background-image: none !important;
+  background-color: #2ecc71; /* A digital "success" green */
+  color: white; 
+  text-shadow: none;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.6);
+  width: 70px;
+  height: 35px;
+  transform: rotate(0deg);
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+/* --- RECONSTRUCTED ANIMATIONS --- */
+
+/* Next: Slide out right, switch to z-0, slide back UNDER */
+@keyframes shuffleRightOut {
+  0% { transform: translate(0, 0) rotate(0deg); z-index: 100; }
+  /* Reduced swing from 130% to 105% so wide cards don't fly off screen */
+  50% { transform: translate(105%, -15px) rotate(8deg); z-index: 100; }
+  51% { z-index: 0; } 
+  100% { 
+    transform: translate(calc(3 * 4px), calc(3 * 4px)) rotate(calc(3 * 1.5deg)); 
+    z-index: 0; 
+  }
+}
+
+/* Previous: Slide out left from under, switch to high z, slide over TOP */
+@keyframes shuffleLeftOver {
+  0% { 
+    transform: translate(calc(3 * 4px), calc(3 * 4px)) rotate(calc(3 * 1.5deg));
+    z-index: 0; 
+  }
+  /* Reduced swing from -130% to -105% */
+  50% { transform: translate(-105%, -15px) rotate(-8deg); z-index: 0; }
+  51% { z-index: 200; } 
+  100% { transform: translate(0, 0) rotate(0deg); z-index: 200; }
+}
+
+.shuffling-out-right { animation: shuffleRightOut 0.6s cubic-bezier(0.45, 0, 0.55, 1) forwards; }
+.shuffling-in-left { animation: shuffleLeftOver 0.6s cubic-bezier(0.45, 0, 0.55, 1) forwards; }
+
+.shuffle-btn {
+  background: none; border: none; font-size: 5rem; color: #dfbb9f;
+  cursor: pointer; opacity: 0.6; transition: 0.1s;
+}
+.shuffle-btn:hover { opacity: 1; transform: scale(1.1); }
