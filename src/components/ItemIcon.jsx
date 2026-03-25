@@ -5,8 +5,12 @@ export function ItemIcon({ icon, size = '100%', className = '' }) {
   // 1. Safety Check
   if (!icon) return null;
 
-  // 2. Detect if it's an Image URL or an Emoji string
-  const isUrl = icon.startsWith('http') || icon.startsWith('blob:') || icon.includes('githubusercontent');
+  // 2. Detect if it's an Image URL, local path, or an Emoji string
+  const isUrl = icon.startsWith('http') || 
+  icon.startsWith('blob:') || 
+  icon.includes('githubusercontent') ||
+  icon.startsWith('/') || // <-- THE MAGIC FIX!
+  icon.endsWith('.png');
 
   // 3. Render Image (Watercolor Style)
   if (isUrl) {
