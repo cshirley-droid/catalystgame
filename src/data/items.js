@@ -60,7 +60,7 @@ export const ITEMS = {
 
   // --- ACIDS & SOLVENTS ---
   ammonia_gas: { id: "ammonia_gas", name: "Ammonia Gas", type: "pyrotechny", icon: "☁️", desc: "NH3." },
-  chlorine_gas: { id: "chlorine_gas", name: "Chlorine Gas", type: "pyrotechny", icon: "https://github.com/cshirley-droid/catalyst/blob/main/chlorine_gas.png", desc: "Toxic, green oxidizer." },
+  chlorine_gas: { id: "chlorine_gas", name: "Chlorine Gas", type: "pyrotechny", icon: "/assets/items/chlorine_gas.png", desc: "Toxic, green oxidizer." },
   muriatic_acid: { 
     id: "muriatic_acid", 
     name: "Muriatic Acid", 
@@ -75,7 +75,7 @@ export const ITEMS = {
   wood_alcohol: { id: "wood_alcohol", name: "Wood Alcohol", type: "pyrotechny", icon: "/assets/items/wood_alcohol.png", desc: "Methanol (Toxic)." },
 
   // --- PROCESSED MATERIALS ---
-  boiled_water: { id:"boiled_water", name: "Boiled Water", type: "pyrotechny", icon: "https://github.com/cshirley-droid/catalyst/blob/main/boiled_water.png", desc: "Water purified by heat. Essential for sterile alchemical processes."},
+  boiled_water: { id:"boiled_water", name: "Boiled Water", type: "pyrotechny", icon: "/assets/items/boiled_water.png", desc: "Water purified by heat. Essential for sterile alchemical processes."},
   ceramic_dust: { 
     id: "ceramic_dust", 
     name: "Ceramic Dust", 
@@ -84,7 +84,7 @@ export const ITEMS = {
     desc: "Cocciopesto. Crushed pottery containing reactive silica for hydraulic cement." // Keywords: Cocciopesto, Silica
   },
   charcoal: { id: "charcoal", name: "Charcoal", type: "pyrotechny", icon: "/assets/items/charcoal.png", desc: "Pure carbon fuel." },
-  coke: { id: "coke", name: "Coke", type: "pyrotechny", icon: "https://github.com/cshirley-droid/catalyst/blob/main/coke.png", desc: "Pure coal fuel." },
+  coke: { id: "coke", name: "Coke", type: "pyrotechny", icon: "/assets/items/coke.png", desc: "Pure coal fuel." },
   glass_frit: {
     id: "glass_frit",
     name: "Glass Frit",
@@ -96,11 +96,11 @@ export const ITEMS = {
   plant_pulp: { id: "plant_pulp", name: "Plant Pulp", type: "pyrotechny", icon: "/assets/items/plant_pulp.png", desc: "Cellulose fibers." },
   
   // --- PROCESSED FOODS & ORGANICS ---
-  aniline: { id: "aniline", name: "Aniline", type: "pyrotechny", icon: "https://github.com/cshirley-droid/catalyst/blob/main/aniline.png", desc: "Dye base." },
-  coal_tar: { id: "coal_tar", name: "Coal Tar", type: "pyrotechny", icon: "https://github.com/cshirley-droid/catalyst/blob/main/coal_tar.png", desc: "Sticky byproduct." },
-  cornmeal: { id: "cornmeal", name: "Cornmeal", type: "mechanikos", icon: "https://github.com/cshirley-droid/catalyst/blob/main/cornmeal.png", desc: "Ground maize." },
+  aniline: { id: "aniline", name: "Aniline", type: "pyrotechny", icon: "/assets/items/aniline.png", desc: "Dye base." },
+  coal_tar: { id: "coal_tar", name: "Coal Tar", type: "pyrotechny", icon: "/assets/items/coal_tar.png", desc: "Sticky byproduct." },
+  cornmeal: { id: "cornmeal", name: "Cornmeal", type: "mechanikos", icon: "/assets/items/cornmeal.png", desc: "Ground maize." },
   crude_morphine: { id: "crude_morphine", name: "Crude Morphine", type: "biomancy", icon: "🧂", desc: "Precipitated alkaloid crystals." },
-  flour: { id: "flour", name: "Flour", type: "mechanikos", icon: "https://github.com/cshirley-droid/catalyst/blob/main/flour.png", desc: "Ground wheat." },
+  flour: { id: "flour", name: "Flour", type: "mechanikos", icon: "/assets/items/flour.png", desc: "Ground wheat." },
   morphine_solution: { id: "morphine_solution", name: "Calcium Morphenate", type: "biomancy", icon: "🧪", desc: "Morphine dissolved in lime water." },
   phenol: { id: "phenol", name: "Phenol", type: "pyrotechny", icon: "/assets/items/phenol_or_carbolic_acid.png", desc: "Carbolic acid." },
   raw_opium: { id: "raw_opium", name: "Raw Opium", type: "pyrotechny", icon: "/assets/items/raw_opium.png", desc: "Dried latex from poppy pods." },
