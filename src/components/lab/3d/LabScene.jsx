@@ -8,7 +8,7 @@ import { STATION_POSITIONS, getStationDefinition } from '../labConfig';
 import { PinnedStation } from './PinnedStation';
 
 // --- 1. NEW: DEFINE THE URL AND PRE-LOAD IT ---
-const SKYBOX_URL = 'https://cdn.jsdelivr.net/gh/cshirley-droid/catalyst@main/lab/lab2skybox.webp';
+const SKYBOX_URL = '/assets/lab/lab2skybox.webp';
 // Calling this outside the component tells the browser to fetch the image immediately
 useLoader.preload(THREE.TextureLoader, SKYBOX_URL);
 
